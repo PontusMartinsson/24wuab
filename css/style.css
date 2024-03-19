@@ -45,16 +45,13 @@ body {
     --border: 1px solid #e0e0e0;
     --ss_blue: #3949ab;
     --accent_height: 7px;
+    --aside_width: 17em;
 }
 
 h1 {
    margin: auto auto auto 1em; 
    color: #616161;
    font-size: 1em;
-}
-
-h2 {
-    font-size: 0.9em;
 }
     
 #wrapper {
@@ -79,6 +76,11 @@ h2 {
     background-color: var(--ss_blue);
 }
 
+.horizontal_separator {
+    border-top: var(--border);
+    width: 100%;
+}
+
 header {
     grid-area: head;
     
@@ -96,7 +98,7 @@ header {
     height: fit-content;
 }
 
-.vertical_separator {
+header > .vertical_separator {
     height: 2.7em;
     border-left: var(--border);
     margin: 0;
@@ -119,7 +121,10 @@ header {
 
 main {
     grid-area: main;
-    height: 500vh;
+
+    display: flex;
+
+    background-color: #fafafa;
 }
 
 nav {    
@@ -155,6 +160,7 @@ nav {
 
 .nav_item h2 {
     margin: 0.5em 0;
+    font-size: 0.9em;
 }
 
 .nav_item:hover{
@@ -165,12 +171,15 @@ aside {
     grid-area: aside;
     
     display: none;
-    position: sticky;
+    position: fixed;
     top: var(--accent_height);
     left: 0;
-
+    
     flex-direction: column;
     align-items: center;
+    
+    width: var(--aside_width);
+    margin-top: var(--accent_height);
     border-right: var(--border);
     height: calc(100vh - var(--accent_height));
 
@@ -183,6 +192,22 @@ aside {
     margin: 1em 3em;
 }
 
+#scroll_nav {
+    display: flex;
+    flex-flow: column nowrap;
+
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+    width: calc(100% - 1em);
+    padding: 0.5em;
+}
+
+.nav_item .expand_arrow {
+    fill: #616161;
+    justify-self: flex-end;
+}
+
 @media screen and (min-width: 1024px) {
     #wrapper {
         grid-template-areas: 
@@ -190,7 +215,8 @@ aside {
         'aside head'
         'aside main';
 
-        grid-template-columns: min-content;
+        grid-template-columns: var(--aside_width) auto;
+        grid-template-rows: auto;
     }
 
     nav {
@@ -199,5 +225,25 @@ aside {
 
     aside {
         display: flex;
+    }
+
+    .nav_item {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+        width: calc(100% - 2em);
+        margin: 0;
+        padding: 1em;
+        border-radius: 0.25em;
+    }
+
+    .nav_item svg {
+        margin: 0;
+    }
+
+    .nav_item h2 {
+        margin: 0;
+        font-size: 1em;
     }
 }
