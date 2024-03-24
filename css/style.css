@@ -77,6 +77,8 @@ a {
     'accent'
     'head'
     'main';
+
+    grid-template-columns: calc(100vw - 1.25em);
 }
 
 #accent {
@@ -158,14 +160,6 @@ main h2 {
     margin-bottom: 0.5em;
 }
 
-main h3 {
-    font-size: 1.125em;
-}
-
-.startsida h2 {
-    margin-left: 0.5em;
-}
-
 main .container {
     width: 100%;
     
@@ -179,13 +173,66 @@ main .container {
     margin: 0 0.5em;
 }
 
+.startsida h2 {
+    margin-left: 0.5em;
+}
+
 .startsida h3 {
     padding: 0.25em 0.5em;
     border-bottom: var(--border_container);
     border-radius: 0.25em 0.25em 0 0;
     margin: 0 0 0.25em;
-
+    
+    font-size: 1.125em;
     background-color: #fafafa;
+}
+
+main.individuell_studieplan {
+    flex-direction: column;
+    padding: 0 0 auto 0;
+    
+}
+
+.individuell_studieplan h2 {
+    margin-top: 1em;
+    margin-left: 1em;
+    width: fit-content;
+}
+
+.individuell_studieplan h3 {
+    margin-top: 2em;
+    font-size: 1em;
+}
+
+#tabeller {
+    width: calc(100% - 1em);
+    padding-left: 1em;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+table, th, td {
+    border: 1px solid #888888;
+    border-collapse: collapse;
+    padding: 0.4em;
+}
+
+table {
+    width: fit-content;
+    margin: 1em 0;
+}
+
+th {
+    max-width: 7em;
+}
+
+*:has(> .visa) {
+    text-align: center;
+}
+
+.visa {
+    color: var(--ss_blue);
+    text-decoration: 2px solid underline;
 }
 
 nav {    
@@ -196,7 +243,7 @@ nav {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 2;
 
     height: fit-content;
     width: inherit;
@@ -390,14 +437,13 @@ nav h2 {
         width: calc(100% - 272px);
     }
 
+    .minimized header {
+        width: calc(100% - 89px);
+    }
+
     main {
         padding-bottom: 1em;
         flex-flow: row wrap;
-    }
-
-    main .container {
-        /* margin-left: 2.5%;
-        margin-right: 2.5%; */
     }
 
     .startsida .container {
