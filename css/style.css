@@ -48,6 +48,7 @@ body {
     --ss_blue: #3949ab;
     --accent_height: 7px;
     --menu_width: 17em;
+    --slightly_gray: #eeeeee;
 }
 
 #current_page {
@@ -78,7 +79,7 @@ a {
     'head'
     'main';
 
-    grid-template-columns: calc(100vw - 1.25em);
+    grid-template-columns: 100vw;
 }
 
 #accent {
@@ -150,6 +151,10 @@ main {
     bottom: calc(84px + 78px);
 
     height: fit-content;
+    padding-bottom: calc(84px + 1em);
+}
+
+main:not(.tabell) {
     padding: 1em;
     padding-bottom: calc(84px + 1em);
 }
@@ -184,34 +189,35 @@ main .container {
     margin: 0 0 0.25em;
     
     font-size: 1.125em;
-    background-color: #fafafa;
+    background-color: var(--slightly_gray);
 }
 
-main.individuell_studieplan {
+.tabell {
     flex-direction: column;
     padding: 0 0 auto 0;
-    
 }
 
-.individuell_studieplan h2 {
+.tabell h2 {
     margin-top: 1em;
     margin-left: 1em;
     width: fit-content;
 }
 
-.individuell_studieplan h3 {
+.tabell h3 {
     margin-top: 2em;
     font-size: 1em;
 }
 
 #tabeller {
-    width: calc(100% - 1em);
+    width: calc(100% - 2em);
     padding-left: 1em;
+    padding-right: 1em;
     overflow-x: scroll;
     scrollbar-width: none;
 }
 
 table, th, td {
+    width: fit-content;
     border: 1px solid #888888;
     border-collapse: collapse;
     padding: 0.4em;
@@ -222,8 +228,17 @@ table {
     margin: 1em 0;
 }
 
+tr:nth-child(even) {
+    background-color: var(--slightly_gray);
+}
+
 th {
-    max-width: 7em;
+    width: fit-content;
+    max-width: 8em;
+}
+
+td:not(.kontakt td) {
+    white-space: nowrap;
 }
 
 *:has(> .visa) {
@@ -233,6 +248,11 @@ th {
 .visa {
     color: var(--ss_blue);
     text-decoration: 2px solid underline;
+}
+
+.kontakt td {
+    min-width: 11em;
+    max-width: 11em;
 }
 
 nav {    
