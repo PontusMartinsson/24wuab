@@ -194,7 +194,7 @@ main .container {
 
 .tabell {
     flex-direction: column;
-    padding: 0 0 auto 0;
+    /* padding: 0 0 auto 0; */
 }
 
 .tabell h2 {
