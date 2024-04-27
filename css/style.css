@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
-
-.lato-thin {
-    font-family: "Lato", sans-serif;
-    font-weight: 100;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Shippori+Antique&display=swap');
 
 .lato-regular {
     font-family: "Lato", sans-serif;
@@ -18,21 +12,15 @@
     font-style: normal;
 }
 
-.lato-bold {
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
+.pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
     font-style: normal;
 }
-
-.lato-black {
-    font-family: "Lato", sans-serif;
-    font-weight: 900;
-    font-style: normal;
-}
-
-.lato-light {
-    font-family: "Lato", sans-serif;
-    font-weight: 300;
+  
+.pt-sans-medium {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 550;
     font-style: normal;
 }
 
@@ -45,13 +33,13 @@
 body {
     --border: 1px solid #e0e0e0;
     --border_container: 1px solid #cccccc;
-    --ss_blue: #3949ab;
+    --nti_purple: #8e0570;
     --accent_height: 7px;
     --menu_width: 17em;
     --slightly_gray: #eeeeee;
 }
 
-#current_page {
+.current_page {
     background-color: #e7e9f5;
 }
 
@@ -92,7 +80,7 @@ a {
     width: 100%;
     height: var(--accent_height);
 
-    background-color: var(--ss_blue);
+    background-color: var(--nti_purple);
 }
 
 .horizontal_separator {
@@ -155,8 +143,7 @@ main {
 }
 
 main:not(.tabell) {
-    padding: 1em;
-    padding-bottom: calc(84px + 1em);
+    padding: 1em 1em calc(84px + 1em) 1em;
 }
 
 main h2 {
@@ -237,22 +224,13 @@ th {
     max-width: 8em;
 }
 
-td:not(.kontakt td) {
-    white-space: nowrap;
-}
-
 *:has(> .visa) {
     text-align: center;
 }
 
 .visa {
-    color: var(--ss_blue);
+    color: var(--nti_purple);
     text-decoration: 2px solid underline;
-}
-
-.kontakt td {
-    min-width: 11em;
-    max-width: 11em;
 }
 
 nav {    
@@ -286,7 +264,7 @@ nav {
     width: 1.5em;
     height: 1.5em;
     margin: 0.5em;
-    fill: var(--ss_blue);
+    fill: var(--nti_purple);
 }
 
 nav h2 {
@@ -352,7 +330,7 @@ nav h2 {
     top: 1.5em;
     right: 1.5em;
 
-    fill: var(--ss_blue);
+    fill: var(--nti_purple);
     width: 2em;
 }
 
@@ -432,6 +410,45 @@ nav h2 {
     margin-left: 2.5em;
 }
 
+
+
+#card_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    width: 100%;
+    height: fit-content;
+    padding-top: 1em;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    align-items: center;
+
+    border: var(--border_container);
+    border-radius: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 3em;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 1em 1em 0 0;
+}
+
+.lista {
+    width: calc(100% - 1em);
+    padding: 0.5em;
+}
+
+.lista p {
+    margin: 0.5em 0;
+}
+
 @media screen and (min-width: 1024px) {
     #wrapper {
         grid-template-areas: 
@@ -464,6 +481,10 @@ nav h2 {
     main {
         padding-bottom: 1em;
         flex-flow: row wrap;
+    }
+
+    main:not(.tabell) {
+        padding: 1em;
     }
 
     .startsida .container {
@@ -522,5 +543,9 @@ nav h2 {
 
     #minimize_box {
         display: block;
+    }
+
+    .card {
+        width: 28em;
     }
 }
